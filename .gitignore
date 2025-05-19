@@ -1,0 +1,9 @@
+# debug用文件夹
+test/
+
+# 预训练权重
+pretrained/
+
+# pyc
+*.pyc
+__pycache__
