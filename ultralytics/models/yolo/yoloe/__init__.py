@@ -3,5 +3,6 @@
 from .train import YOLOETrainer
 from .train_seg import YOLOESegTrainer
 from .val import YOLOEDetectValidator, YOLOESegValidator
+from .predict_vp import YOLOEVPSegPredictor
 
-__all__ = ["YOLOETrainer", "YOLOESegTrainer", "YOLOEDetectValidator", "YOLOESegValidator"]
+__all__ = ["YOLOETrainer", "YOLOESegTrainer", "YOLOEDetectValidator", "YOLOESegValidator", "YOLOEVPSegPredictor"]
