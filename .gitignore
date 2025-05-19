@@ -7,3 +7,6 @@ pretrained/
 # pyc
 *.pyc
 __pycache__
+
+# 输出文件夹
+runs/
