@@ -1,6 +1,6 @@
 from abc import abstractmethod
 import clip
-import mobileclip
+import third_party.ml_mobileclip.mobileclip as mobileclip
 import torch.nn as nn
 from ultralytics.utils.torch_utils import smart_inference_mode
 import torch
