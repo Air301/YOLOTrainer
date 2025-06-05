@@ -49,11 +49,18 @@ class YOLOETrainer(yolo.detect.DetectionTrainer):
             batch (int, optional): Size of batches, this is for `rect`. Defaults to None.
         """
         gs = max(int(de_parallel(self.model).stride.max() if self.model else 0), 32)
+        # return build_yolo_dataset(
+        #     self.args, img_path, batch, self.data, mode=mode, rect=mode == "val", stride=gs, multi_modal=mode == "train"
+        # )
         return build_yolo_dataset(
-            self.args, img_path, batch, self.data, mode=mode, rect=mode == "val", stride=gs, multi_modal=mode == "train"
+            self.args, img_path, batch, self.data, mode=mode, rect=mode == "val", stride=gs, multi_modal=False
         )
 
     def preprocess_batch(self, batch):
         batch = super().preprocess_batch(batch)
-        batch["txt_feats"] = batch["texts"].to(self.device)
+        # batch["txt_feats"] = batch["texts"].to(self.device)
+        if 'text' not in batch:
+            batch['text_feats'] = None
+        else:
+            batch['text_feats'] = batch['texts'].to(self.device)
         return batch
